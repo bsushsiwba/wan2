@@ -1,4 +1,7 @@
 import torch
+
+torch.backends.cuda.preferred_linalg_library("magma")
+
 from diffusers.pipelines.wan.pipeline_wan_i2v import WanImageToVideoPipeline
 from diffusers.models.transformers.transformer_wan import WanTransformer3DModel
 from diffusers.utils.export_utils import export_to_video
@@ -12,8 +15,6 @@ import gc
 from torchao.quantization import quantize_
 from torchao.quantization import Float8DynamicActivationFloat8WeightConfig
 from torchao.quantization import Int8WeightOnlyConfig
-
-import aoti
 
 
 MODEL_ID = "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
@@ -73,9 +74,6 @@ pipe.unload_lora_weights()
 quantize_(pipe.text_encoder, Int8WeightOnlyConfig())
 quantize_(pipe.transformer, Float8DynamicActivationFloat8WeightConfig())
 quantize_(pipe.transformer_2, Float8DynamicActivationFloat8WeightConfig())
-
-aoti.aoti_blocks_load(pipe.transformer, "zerogpu-aoti/Wan2", variant="fp8da")
-aoti.aoti_blocks_load(pipe.transformer_2, "zerogpu-aoti/Wan2", variant="fp8da")
 
 
 default_prompt_i2v = (

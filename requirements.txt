@@ -10,4 +10,5 @@ imageio-ffmpeg
 opencv-python
 torchao==0.11.0
 gradio
-aoti
+imageio
+imageio-ffmpeg
