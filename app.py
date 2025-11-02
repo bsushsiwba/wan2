@@ -19,8 +19,8 @@ from torchao.quantization import Int8WeightOnlyConfig
 
 MODEL_ID = "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
 
-MAX_DIM = 832
-MIN_DIM = 480
+MAX_DIM = 1024
+MIN_DIM = 768
 SQUARE_DIM = 640
 MULTIPLE_OF = 16
 
