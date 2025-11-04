@@ -55,15 +55,15 @@ pipe = WanImageToVideoPipeline.from_pretrained(
 ).to("cuda")
 
 pipe.load_lora_weights(
-    "Kijai/WanVideo_comfy",
-    weight_name="Lightx2v/lightx2v_I2V_14B_720p_cfg_step_distill_rank128_bf16.safetensors",
+    "Kijai/WanVideo_comfy@dea59f510010ba12ddd6406765a3caaa228c2c83",
+    weight_name="Lightx2v/lightx2v_I2V_14B_720p_cfg_step_distill_rank_128_bf16.safetensors",
     adapter_name="lightx2v",
 )
 kwargs_lora = {}
 kwargs_lora["load_into_transformer_2"] = True
 pipe.load_lora_weights(
-    "Kijai/WanVideo_comfy",
-    weight_name="Lightx2v/lightx2v_I2V_14B_720p_cfg_step_distill_rank128_bf16.safetensors",
+    "Kijai/WanVideo_comfy@dea59f510010ba12ddd6406765a3caaa228c2c83",
+    weight_name="Lightx2v/lightx2v_I2V_14B_720p_cfg_step_distill_rank_128_bf16.safetensors",
     adapter_name="lightx2v_2",
     **kwargs_lora
 )
