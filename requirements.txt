@@ -1,4 +1,4 @@
-git+https://github.com/linoytsaban/diffusers.git@wan22-loras
+git+https://github.com/bsushsiwba/wandiffusers.git@wan22-loras
 
 transformers
 accelerate
