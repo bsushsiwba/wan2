@@ -53,7 +53,7 @@ pipe = WanImageToVideoPipeline.from_pretrained(
 
 pipe.load_lora_weights(
     "abdulsaboor938/WanVideo_comfy",
-    weight_name="lightx2v_I2V_14B_720p_cfg_step_distill_rankP128_bf16.safetensors",
+    weight_name="lightx2v_I2V_14B_720p_cfg_step_distill_rank_128_bf16.safetensors",
     adapter_name="lightx2v",
 )
 kwargs_lora = {}
