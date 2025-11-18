@@ -55,15 +55,15 @@ pipe = WanImageToVideoPipeline.from_pretrained(
 ).to("cuda")
 
 pipe.load_lora_weights(
-    "Kijai/WanVideo_comfy",
-    weight_name="Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
+    "abdulsaboor938/WanVideo_comfy",
+    weight_name="lightx2v_I2V_14B_720p_cfg_step_distill_rank_128_bf16.safetensors",
     adapter_name="lightx2v",
 )
 kwargs_lora = {}
 kwargs_lora["load_into_transformer_2"] = True
 pipe.load_lora_weights(
-    "Kijai/WanVideo_comfy",
-    weight_name="Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank128_bf16.safetensors",
+    "abdulsaboor938/WanVideo_comfy",
+    weight_name="lightx2v_I2V_14B_720p_cfg_step_distill_rank_128_bf16.safetensors",
     adapter_name="lightx2v_2",
     **kwargs_lora
 )
@@ -190,9 +190,9 @@ def main():
     generate_video(
         input_image=input_image,
         prompt=prompt,
-        steps=6,
+        steps=1,
         negative_prompt=negative_prompt,
-        duration_seconds=4.0,
+        duration_seconds=1.0,
         guidance_scale=1.0,
         guidance_scale_2=1.0,
         seed=42,
